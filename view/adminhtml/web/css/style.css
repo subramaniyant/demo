@@ -1,0 +1,197 @@
+#aso-dashboard .aso-indicator {
+  display: inline-block;
+  margin: 2%;
+  vertical-align: top;
+  width: 20%;
+}
+#aso-dashboard .aso-indicators {
+  text-align: center;
+}
+#aso-dashboard .aso-clear {
+	clear: both;
+}
+.morris-hover.morris-default-style {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 1);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #666;
+  font-family: sans-serif;
+  font-size: 12px;
+  padding: 6px;
+  text-align: center;
+}
+#aso-dashboard .donut-title.donut-green{
+	color: #0BA462;
+}
+#aso-dashboard .donut-title.donut-blue{
+	color: #1AA3D1;
+}
+#aso-dashboard .donut-title.donut-darkblue{
+	color: #186FB1;
+}
+#aso-dashboard .donuts {
+  max-height: 305px;
+}
+#aso-dashboard .donut-title {
+  color: #f07746;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+#aso-dashboard .aso-panels {
+  margin-top: 15px;
+  text-align: center;
+}
+#aso-dashboard .panel {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  margin: 1%;
+  width: 22%;
+}
+#aso-dashboard .panel-heading {
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 25px 15px;
+}
+#aso-dashboard h1 {
+  font-weight: normal;
+}
+#aso-dashboard .panel-footer {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #428bca;
+  font-size: 16px;
+  padding: 10px;
+  text-align: left;
+}
+#aso-dashboard .panel-footer.footer-yellow {
+	color: #f0ad4e;
+}
+#aso-dashboard .panel-footer.footer-red {
+	color: #d9534f;
+}
+#aso-dashboard .panel-heading .huge-left {
+  float: left;
+  font-size: 20px;
+  line-height: 55px;
+}
+#aso-dashboard .panel-heading .huge-left span{
+  display: inline-block;
+  font-size: 45px;
+  vertical-align: top;
+}
+#aso-dashboard .panel-heading .huge, #aso-dashboard .panel-heading-new .huge {
+  font-size: 35px;
+  text-align: right;
+}
+#aso-dashboard .panel-primary > .panel-heading {
+  background-color: #428bca;
+  border-color: #428bca;
+  color: #fff;
+}
+#aso-dashboard .panel-primary {
+  border-color: #428bca;
+}
+#aso-dashboard .panel-yellow .panel-heading {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+  color: #fff;
+}
+#aso-dashboard .panel-yellow {
+  border-color: #f0ad4e;
+}
+#aso-dashboard .panel-red .panel-heading {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: #fff;
+}
+#aso-dashboard .panel-red {
+  border-color: #d9534f;
+}
+#aso-dashboard .huge > span {
+  font-size: 30px;
+}
+#aso-dashboard .panel-heading-new {
+  background: cadetblue url("../images/dashboard.svg") no-repeat scroll 10px 5px / 80px auto;
+  color: #fff;
+  padding: 10px 15px;
+}
+#aso-dashboard .panel-cadetblue {
+  border-color: cadetblue;
+}
+#aso-dashboard .footer-cadetblue {
+  color: cadetblue;
+}
+#aso-dashboard .panel-heading-new .huge-down {
+  background: rgba(0, 0, 0, 0) url("../images/time.svg") no-repeat scroll 0 4px / 12px auto;
+  display: table;
+  float: right;
+  padding-left: 15px;
+  text-align: right;
+}
+#aso-dashboard .aso-monthview > h2 {
+  text-align: center;
+}
+#aso-dashboard .panel-heading-new .huge span{
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.aso-customer .aso-indicator {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+}
+.aso-customer .aso-clear {
+  clear: both;
+}
+.aso-customer .donuts {
+  height: 200px;
+  width: 200px;
+}
+.aso-indicator td {
+  color: maroon;
+  font-family: fantasy;
+  font-size: 14px;
+}
+.aso-indicator > table {
+  margin: 30px 25px;
+  width: 80%;
+}
+.aso-customer-tab table{
+  width: 100%;
+}
+.aso-customer fieldset, .aso-customer-tab fieldset{
+  min-height: 200px;
+  border: none;
+}
+.aso-customer, .aso-customer-tab {
+  float: left;
+  margin-bottom: 15px;
+  width: 50%;
+}
+.aso-customer-tab table th {
+  border-bottom: 2px solid #555;
+  padding: 5px;
+  text-transform: uppercase;
+}
+.aso-customer-tab table td{
+  padding: 5px;
+  color: #676056;
+}
+.aso-customer-tab table tr.even {
+  background: #fff none repeat scroll 0 0;
+}
+.aso-customer-tab table tr.odd {
+  background: #f1f1f1 none repeat scroll 0 0;
+}
+#aso-customer-history {
+  z-index: 999;
+}
+.aso-customer .donuts svg{
+  width: 200px;
+}

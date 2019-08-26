@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author     DCKAP
+ * @package    DCKAP_AdvancedSampleOrders
+ * @copyright  Copyright (c) 2016 DCKAP Inc (http://www.dckap.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <css src="DCKAP_AdvancedSampleOrders::css/pdpstyle.css" />
+    </head>
+    <body>
+        <referenceBlock name="bundle.summary">
+            <block class="DCKAP\AdvancedSampleOrders\Block\Product\View" name="product.info.addtocart.bundle" as="addtocart" template="DCKAP_AdvancedSampleOrders::view/addtocart.phtml">
+                <block class="Magento\Catalog\Block\ShortcutButtons\InCatalog" name="addtocart.shortcut.buttons"/>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

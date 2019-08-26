@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     DCKAP
+  ~ @package    DCKAP_AdvancedSampleOrders
+  ~ @copyright  Copyright (c) 2016 DCKAP Inc (http://www.dckap.com)
+  ~ @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DCKAP_AdvancedSampleOrders::dashboard" title="Advanced Sample Orders" module="DCKAP_AdvancedSampleOrders" sortOrder="50" parent="Magento_Sales::sales" resource="DCKAP_AdvancedSampleOrders::dashboard"/>
+        <add id="DCKAP_AdvancedSampleOrders::analytics" title="Sales Analytics" action="advancedsampleorders/dashboard/analytics" module="DCKAP_AdvancedSampleOrders" sortOrder="10" parent="DCKAP_AdvancedSampleOrders::dashboard" resource="DCKAP_AdvancedSampleOrders::analytics"/>
+        <add id="DCKAP_AdvancedSampleOrders::configuration" title="Configuration" action="adminhtml/system_config/edit/section/advancedsampleorders" module="DCKAP_AdvancedSampleOrders" sortOrder="20" parent="DCKAP_AdvancedSampleOrders::dashboard" resource="DCKAP_AdvancedSampleOrders::configuration"/>
+    </menu>
+</config>

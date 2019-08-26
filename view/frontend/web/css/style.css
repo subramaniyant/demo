@@ -1,0 +1,28 @@
+.product-item-actions .actions-primary {
+    display: initial;
+}
+.product-item .tocart {
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    padding: 10px 7px 10px !important;
+}
+.action.primary {
+    float: left;
+    border-radius: 0;
+    padding: 8px 5px 9px;
+    font-size: 1.3rem;
+}
+.sample-button {
+    position: relative;
+    bottom: 60px;
+    float: right;
+    width: auto !important;
+    right: 13px;
+    top: initial !important;
+}
+.actions-secondary {
+    text-align: right;
+    position: relative;
+    top: 9px;
+}

@@ -1,0 +1,96 @@
+<?php
+/**
+ * @author     DCKAP
+ * @package    DCKAP_AdvancedSampleOrders
+ * @copyright  Copyright (c) 2016 DCKAP Inc (http://www.dckap.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/** @var \DCKAP\AdvancedSampleOrders\Block\Adminhtml\History $block */
+if ($block->isSample()) {
+    $customerDonut = $block->getCustomerDonut();
+    $history = $block->getHistory();
+    ?>
+    <div style="clear:both"></div>
+    <div class="entry-edit box-left aso-customer">
+        <div class="entry-edit-head">
+            <h4 class="icon-head">Customer History ( All Products )</h4>
+        </div>
+        <fieldset>
+            <div class="aso-indicators">
+                <div class="aso-indicator">
+                    <div id="donut1" class="donuts"></div>
+                </div>
+                <div class="aso-indicator">
+                    <table cellspacing="8">
+                        <?php foreach ($customerDonut as $status) { ?>
+                            <tr>
+                                <td><?= $block->escapeHtml($status["label"]) ?></td>
+                                <td><?= $block->escapeHtml($status["value"]) ?></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+                <div class="aso-clear"></div>
+                <script type="text/javascript">
+                    require(['jquery','prettify','raphael','morris'],function($) {
+                        Morris.Donut({
+                            element: 'donut1',
+                            data: <?= json_encode($customerDonut);?>,
+                            labelColor: '#0BA462',
+                            colors: [
+                                '#ff8787',
+                                '#fb8080',
+                                '#f57a7a',
+                                '#ec7171',
+                                '#e36868',
+                                '#DF6464',
+                                '#D15656'
+                            ],
+                            resize: true,
+                            formatter: function (x) { return x }
+                        });
+                    });
+                </script>
+            </div>
+        </fieldset>
+    </div>
+    <div class="entry-edit box-right aso-customer-tab">
+        <div class="entry-edit-head">
+            <h4 class="icon-head">Customer History ( Specific to this Order - last 10 items)</h4>
+        </div>
+        <fieldset>
+            <div id="aso-customer-history">
+                <table cellpadding="0" cellspacing="0">
+                    <colgroup>
+                        <col width="1">
+                        <col>
+                        <col>
+                        <col width="1">
+                    </colgroup>
+                    <thead>
+                    <th>Order</th>
+                    <th>Product Name</th>
+                    <th>Ordered On</th>
+                    <th>Status</th>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if (!empty($history)) {
+                        foreach ($history as $row) { ?>
+                            <tr class="<?= $block->escapeHtml($row['classname']); ?>">
+                                <td><a href="<?= $block->escapeUrl($row['orderurl']); ?>" target="_blank">#<?= $block->escapeHtml($row['orderid']); ?></a></td>
+                                <td><?= $block->escapeHtml($row['productname']); ?></td>
+                                <td><?= $block->escapeHtml($row['ordered']); ?></td>
+                                <td><?= $block->escapeHtml($row['status']); ?></td>
+                            </tr>
+                        <?php } } else { ?>
+                        <tr><td colspan="4"><center>No history found</center></td></tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div style="clear:both"></div>
+<?php } ?>

@@ -1,0 +1,191 @@
+<?php
+$statusDonut = $block->getStatusDonut();
+$groupDonut = $block->getGroupDonut();
+$customerDonut = $block->getConvertedDonut("customer");
+$guestDonut = $block->getConvertedDonut("guest");
+$monthsData = $block->getMonthsData();
+?>
+<div id="aso-dashboard">
+    <center>
+        <div class="aso-panels">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <?= $block->getConversionRates("total"); ?>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">Total Conversion Rate</span>
+                    <div class="aso-clear"></div>
+                </div>
+            </div>
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <?= $block->getConversionRates("customer"); ?>
+                </div>
+                <div class="panel-footer footer-yellow">
+                    <span class="pull-left">Customer Conversion Rate</span>
+                    <div class="aso-clear"></div>
+                </div>
+            </div>
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <?= $block->getConversionRates("guest"); ?>
+                </div>
+                <div class="panel-footer footer-red">
+                    <span class="pull-left">Guest Conversion Rate</span>
+                    <div class="aso-clear"></div>
+                </div>
+            </div>
+            <div class="panel panel-cadetblue">
+                <div class="panel-heading-new">
+                    <?php $summary = $block->getTotals(); ?>
+                    <div class="huge"  style="line-height: 30px;"><?= sprintf("%02d", $summary[0]); ?><span>Total Samples</span></div>
+                    <div class="huge-down"><?= $summary[1]; ?></div>
+                    <div class="aso-clear"></div>
+                </div>
+                <div class="panel-footer footer-cadetblue">
+                    <span class="pull-left">Total Ordered Samples</span>
+                    <div class="aso-clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="aso-indicators">
+            <div class="aso-indicator">
+                <div id="donut1" class="donuts"></div>
+                <h2 class="donut-title donut-green">Samples by Status </h2>
+            </div>
+            <div class="aso-indicator">
+                <div id="donut2" class="donuts"></div>
+                <h2 class="donut-title">Samples by Group</h2>
+            </div>
+            <div class="aso-indicator">
+                <div id="donut3" class="donuts"></div>
+                <h2 class="donut-title donut-blue">Customer Samples</h2>
+            </div>
+            <div class="aso-indicator">
+                <div id="donut4" class="donuts"></div>
+                <h2 class="donut-title donut-darkblue">Guest Samples</h2>
+            </div>
+            <div class="aso-clear"></div>
+        </div>
+    </center>
+    <div class="aso-clear"></div>
+    <br /><br />
+    <div class="aso-monthview">
+        <h2><span style="color: orange">Total Ordered Samples</span> vs <span style="color: #2FB8E6"> Completed Samples </span> vs <span style="color: #4D94C9"> Converted Samples </span></h2>
+        <div id="aso-month"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['jquery','prettify','raphael','morris'],function($) {
+        Morris.Donut({
+            element: 'donut1',
+            data: <?= json_encode($statusDonut);?>,
+            labelColor: '#0BA462',
+            colors: [
+                '#71ffc8',
+                '#6affc1',
+                '#60f9b7',
+                '#5af3b1',
+                '#55eeac',
+                '#4ee7a5',
+                '#42db99'
+            ],
+            resize: true,
+            formatter: function (x) {
+                return x
+            }
+        });
+        Morris.Donut({
+            element: 'donut2',
+            data: <?= json_encode($groupDonut);?>,
+            labelColor: '#F07746',
+            colors: [
+                '#F07746',
+                '#f9804f'
+            ],
+            resize: true,
+            formatter: function (x) {
+                return x
+            }
+        });
+        Morris.Donut({
+            element: 'donut3',
+            data: <?= json_encode($customerDonut);?>,
+            labelColor: '#1AA3D1',
+            colors: [
+                '#1AA3D1',
+                '#2fb8e6'
+            ],
+            resize: true,
+            formatter: function (x) {
+                return x
+            }
+        });
+        Morris.Donut({
+            element: 'donut4',
+            data: <?= json_encode($guestDonut);?>,
+            labelColor: '#186fb1',
+            colors: [
+                '#186fb1',
+                '#2b82c4',
+            ],
+            resize: true,
+            formatter: function (x) {
+                return x
+            }
+        });
+        Morris.Line({
+            element: 'aso-month',
+            data: <?= json_encode($monthsData);?>,
+            xkey: 'y',
+            ykeys: ['a', 'b', 'c'],
+            labels: ['Total Ordered Samples', 'Completed Samples', 'Converted Samples'],
+            xLabelFormat: function (x) {
+                var month = "";
+                switch (x.getMonth()) {
+                    case 0:
+                        month = "JAN";
+                        break;
+                    case 1:
+                        month = "FEB";
+                        break;
+                    case 2:
+                        month = "MAR";
+                        break;
+                    case 3:
+                        month = "APR";
+                        break;
+                    case 4:
+                        month = "MAY";
+                        break;
+                    case 5:
+                        month = "JUN";
+                        break;
+                    case 6:
+                        month = "JUL";
+                        break;
+                    case 7:
+                        month = "AUG";
+                        break;
+                    case 8:
+                        month = "SEP";
+                        break;
+                    case 9:
+                        month = "OCT";
+                        break;
+                    case 10:
+                        month = "NOV";
+                        break;
+                    case 11:
+                        month = "DEC";
+                        break;
+                }
+                return month + " " + x.getFullYear();
+            },
+            lineColors: ['orange', '#2FB8E6', '#4d94c9'],
+            behaveLikeLine: true,
+            xLabelAngle: 25,
+            resize: true,
+        });
+    });
+</script>

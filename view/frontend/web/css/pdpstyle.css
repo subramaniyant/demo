@@ -1,0 +1,11 @@
+.sample-addtocart {
+    margin-bottom: 15px; 
+    line-height: 20px; 
+    padding: 7px 0px 3px !important; 
+    float: right; 
+    width: 49%;
+}
+.sample-label {
+	display: block; 
+	font-size: 11px;
+}
